@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Números da Vitória</string>
+    <string name="numeros">Lista de números</string>
+    <string name="sortear">Sortear</string>
+    <string name="iniciar">Clique para escolher os números</string>
+
+</resources>
