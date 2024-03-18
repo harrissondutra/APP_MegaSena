@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         */
 
         button.setOnClickListener {
-            numeros.text = gerarNumeros(6, 60).joinToString("-")
+            numeros.text = gerarNumeros(6, 60).joinToString(" - ")
         }
 
 
