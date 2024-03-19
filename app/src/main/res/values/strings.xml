@@ -3,5 +3,7 @@
     <string name="numeros">Lista de números</string>
     <string name="sortear">Sortear</string>
     <string name="iniciar">Clique para escolher os números</string>
+    <string name="hint">Digite um número entre 6 e 15</string>
+    <string name="label_qtdNumeros">Digite a quantidade de números</string>
 
 </resources>

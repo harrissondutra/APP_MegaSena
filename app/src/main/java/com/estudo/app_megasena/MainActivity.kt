@@ -1,8 +1,10 @@
 package com.estudo.app_megasena
 
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.estudo.app_megasena.databinding.ActivityMainBinding
 import java.util.Random
@@ -19,46 +21,43 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val button: Button = binding.button
-        val numeros = binding.txtNumeros
+        val resultado: TextView = binding.txtNumeros
+        val edtTxt: EditText = binding.edtNumeros
 
-        numeros.text = "Clique para sortear os números"
-
-       /* var qtdNumeros: ArrayList<Int> = arrayListOf()
-        for (i in 6..15) {  // 1..10 é um intervalo que vai de 1 a 10
-            qtdNumeros.add(i)
-        }
-
-        var spinnerData = qtdNumeros.map {
-            it.toString()
-        }
-
-        binding.spinner.adapter =
-            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerData)
-
-        var spinnerValue = binding.spinner.selectedItem
-        */
+        resultado.text = "Clique para sortear os números"
 
         button.setOnClickListener {
-            numeros.text = gerarNumeros(6, 60).joinToString(" - ")
+
+            val numero = edtTxt.text.toString()
+
+            gerarNumeros(numero, resultado)
         }
-
-
     }
 
-    private fun gerarNumeros(qtde: Int, max: Int): MutableSet<Int> {
-        val listaNumeros = mutableSetOf<Int>()
-        var incremento: Int = 0
-        val random = Random()
+    private fun gerarNumeros(qtde: String, textView: TextView) {
+        if (qtde.isNotEmpty()) {
 
-        while (incremento < qtde) {
+            val qtdeNum = qtde.toInt()
 
-            val number = random.nextInt(max)
-            listaNumeros.add(number + 1)
+            if (qtdeNum >= 6 && qtdeNum <= 15) {
 
-            incremento++
+                val listaNumeros = mutableSetOf<Int>()
+                val random = Random()
 
+                while (true) {
+                    val valor = random.nextInt(60)
+                    listaNumeros.add(valor + 1)
+
+                    if (listaNumeros.size == qtdeNum) {
+                        break
+                    }
+                }
+                textView.text = listaNumeros.joinToString(" - ")
+            } else {
+                Toast.makeText(this, "Insira um número entre 6 e 15", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "Insira um número", Toast.LENGTH_SHORT).show()
         }
-
-        return listaNumeros.sortedDescending().reversed().toMutableSet()
     }
 }
