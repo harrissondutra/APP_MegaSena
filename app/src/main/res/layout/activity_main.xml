@@ -49,16 +49,30 @@
 
     <EditText
         android:id="@+id/edt_numeros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="32dp"
-        android:hint="@string/hint"
         android:inputType="number"
         android:textAlignment="center"
+        android:hint="@string/ex_6"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_pergunta" />
+
+    <TextView
+        android:id="@+id/sub_pergunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/hint"
+        android:textColor="#9B9B9B"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edt_numeros" />
+
 
     <TextView
         android:id="@+id/txt_numeros"
@@ -80,7 +94,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/sortear"
+        android:text="@string/gerar_numeros"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/label_historico"
         app:layout_constraintEnd_toEndOf="parent"

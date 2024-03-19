@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val textHistorico: TextView = binding.txtHistorico
 
 
-        resultado.text = "Clique para sortear os números"
+        resultado.text = ""
 
         button.setOnClickListener {
             prefs = getSharedPreferences("db", Context.MODE_PRIVATE)

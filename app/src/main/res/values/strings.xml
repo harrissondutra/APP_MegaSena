@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Números da Vitória</string>
     <string name="numeros">Lista de números</string>
-    <string name="sortear">Sortear</string>
+    <string name="gerar_numeros">Gerar números</string>
     <string name="iniciar">Clique para escolher os números</string>
     <string name="hint">Digite um número entre 6 e 15</string>
     <string name="label_qtdNumeros">Digite a quantidade de números</string>
     <string name="historico">Última aposta:</string>
+    <string name="ex_6">ex: 6</string>
 
 </resources>
