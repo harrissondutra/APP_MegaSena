@@ -1,5 +1,7 @@
 package com.estudo.app_megasena
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -12,6 +14,7 @@ import java.util.Random
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var prefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,13 +26,20 @@ class MainActivity : AppCompatActivity() {
         val button: Button = binding.button
         val resultado: TextView = binding.txtNumeros
         val edtTxt: EditText = binding.edtNumeros
+        val textHistorico: TextView = binding.txtHistorico
+
 
         resultado.text = "Clique para sortear os números"
 
         button.setOnClickListener {
+            prefs = getSharedPreferences("db", Context.MODE_PRIVATE)
+            val result = prefs.getString("result", null)
+
+            if (result != null) {
+                textHistorico.text = "$result"
+            }
 
             val numero = edtTxt.text.toString()
-
             gerarNumeros(numero, resultado)
         }
     }
@@ -53,11 +63,17 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 textView.text = listaNumeros.joinToString(" - ")
+
+                prefs.edit().apply() {
+                    putString("result", textView.text.toString())
+                    apply()
+                }
+
             } else {
                 Toast.makeText(this, "Insira um número entre 6 e 15", Toast.LENGTH_SHORT).show()
             }
         } else {
-            Toast.makeText(this, "Insira um número", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Insira uma quantidade de números", Toast.LENGTH_SHORT).show()
         }
     }
 }
