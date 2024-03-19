@@ -1,6 +1,6 @@
 <p style="text-align:center">
-  App simples para gerar 6 números aleatórios, E você poder ganhar na mega!<br />
-    <p>Apenas clicando no botão</p>
+  App simples para gerar sequência de números, E você poder ganhar na mega!<br />
+    <p>Informando a quantidade de números deseja jogar, é gerado uma sequência organizada em ordem crescente</p>
 </p>
 
 <p style="text-align:center">
