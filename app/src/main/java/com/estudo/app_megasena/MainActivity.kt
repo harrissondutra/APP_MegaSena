@@ -62,7 +62,9 @@ class MainActivity : AppCompatActivity() {
                         break
                     }
                 }
-                textView.text = listaNumeros.joinToString(" - ")
+
+                val listaOrganizada = listaNumeros.sortedDescending().reversed()
+                textView.text = listaOrganizada.joinToString(" - ")
 
                 prefs.edit().apply() {
                     putString("result", textView.text.toString())
